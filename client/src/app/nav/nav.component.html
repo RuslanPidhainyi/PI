@@ -17,14 +17,14 @@
           <a routerLink="/messages" routerLinkActive="active" class="nav-link">Messages</a>
         </li>
       }
-      
+
     </ul>
      
 
     @if(accountService.currentUser()){
       <div dropdown class="dropdown">
         <a dropdownToggle class="dropdown-toggle text-light text-decoration-none">
-          Welcome user
+          Welcome {{accountService.currentUser()?.username}}
         </a>
 
         <div *dropdownMenu class="dropdown-menu">
