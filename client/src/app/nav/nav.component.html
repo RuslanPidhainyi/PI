@@ -1,26 +1,30 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="#">PI</a>
+    <a class="navbar-brand" routerLink='/' routerLinkActive="active">PI</a>
 
-    @if(accountService.currentUser()){
+    
 
     <ul class="navbar-nav me-auto mb-2 mb-md-0">
-      <li class="nav-item">
-        <a class="nav-link">Oferts</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link">Lists</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link">Massages</a>
-      </li>
+
+      @if(accountService.currentUser()){
+        <li class="nav-item">
+          <a routerLink='/offers' routerLinkActive="active" class="nav-link">Offers</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/lists" routerLinkActive="active" class="nav-link">Lists</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/messages" routerLinkActive="active" class="nav-link">Messages</a>
+        </li>
+      }
+
     </ul>
-    } 
+     
 
     @if(accountService.currentUser()){
       <div dropdown class="dropdown">
         <a dropdownToggle class="dropdown-toggle text-light text-decoration-none">
-          Welcome user
+          Welcome {{accountService.currentUser()?.username}}
         </a>
 
         <div *dropdownMenu class="dropdown-menu">
